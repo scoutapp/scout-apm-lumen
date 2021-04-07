@@ -1,0 +1,23 @@
+{
+    "name": "scoutapp/scout-apm-lumen",
+    "type": "library",
+    "description": "Scout Application Performance Monitoring Agent - https://scoutapm.com",
+    "homepage": "https://scoutapm.com/",
+    "license": "MIT",
+    "keywords": [
+        "lumen",
+        "performance",
+        "apm",
+        "monitoring",
+        "development"
+    ],
+    "require": {
+        "laravel/lumen-framework": "^5.5.0|^6.0|^7.0|^8.0",
+        "scoutapp/scout-apm-php": "^6.1"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "optimize-autoloader": true,
+        "sort-packages": true
+    }
+}
