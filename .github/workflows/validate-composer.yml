@@ -7,9 +7,44 @@ on:
     branches: [ main ]
 
 jobs:
-  dummy:
-    name: "Dummy action"
+  validate-composer:
+    name: "Validate dependency installation"
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        extensions: [ "scoutapm", "" ]
+        lumen-version:
+          - "5.5.*"
+          - "6.*"
+          - "7.*"
+          - "8.*"
+        php-version:
+          - "7.1"
+          - "7.2"
+          - "7.3"
+          - "7.4"
+          - "8.0"
+        exclude:
+          - {php-version: "7.1", lumen-version: "6.*"} # Lumen 6 requires 7.2+
+          - {php-version: "7.1", lumen-version: "7.*"} # Lumen 7 requires 7.2+
+          - {php-version: "7.1", lumen-version: "8.*"} # Lumen 8 requires 7.3+
+          - {php-version: "7.2", lumen-version: "8.*"} # Lumen 8 requires 7.3+
+          - {php-version: "7.4", lumen-version: "5.5.*"} # Lumen 5.5.* does not support PHP 7.4+
+          - {php-version: "8.0", lumen-version: "5.5.*"} # Lumen 5.5.* does not support PHP 8.0+
+          - {php-version: "8.0", lumen-version: "6.*"} # Lumen 6.* does not support PHP 8.0+
+          - {php-version: "8.0", lumen-version: "7.*"} # Lumen 7.* does not support PHP 8.0+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+      - name: "Install PHP"
+        uses: shivammathur/setup-php@v2
+        with:
+          coverage: "none"
+          php-version: "${{ matrix.php-version }}"
+          tools: pecl
+          extensions: ${{ matrix.extensions }}
+      # --no-update then a full `composer update` is needed to overcome locked dependencies
+      # See: https://github.com/composer/composer/issues/9561
+      - name: "Require specific Lumen version ${{ matrix.lumen-version}}"
+        run: "composer require laravel/lumen:${{ matrix.lumen-version}} --no-update --no-interaction --prefer-dist --prefer-stable"
+      - name: "Composer update with new requirements"
+        run: "composer update --no-interaction --prefer-dist --prefer-stable"
