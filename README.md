@@ -5,7 +5,7 @@ Detailed performance metrics and transaction traces are collected once the scout
 
 ## Requirements
 
-* PHP Version: PHP 7.1+
+* PHP Version: PHP 7.1+ (PHP 7.4+ is recommended)
 * Lumen Version: 5.5+
 
 ## Quick Start
@@ -55,7 +55,7 @@ In your `.env` file, make sure you set a few configuration variables:
 
 ```
 SCOUT_KEY=ABC0ZABCDEFGHIJKLMNOP
-SCOUT_NAME="My Laravel App"
+SCOUT_NAME="My Lumen App"
 SCOUT_MONITOR=true
 ```
 
