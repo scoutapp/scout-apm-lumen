@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 1.2.0 - 2022-03-09
+
+### Added
+
+- Nothing.
+
+### Changed
+
+- [#3](https://github.com/scoutapp/scout-apm-lumen/pull/3) Updated to require `scout-apm-php` ^8.0 (Lumen 9 support)
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## 1.1.0 - 2022-01-19
 
 ### Added
@@ -10,7 +32,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Changed
 
-- [#2](https://github.com/scoutapp/scout-apm-laravel/pull/2) Updated to require `scout-apm-php` ^7.0
+- [#2](https://github.com/scoutapp/scout-apm-lumen/pull/2) Updated to require `scout-apm-php` ^7.0
 
 ### Deprecated
 

@@ -18,6 +18,7 @@ jobs:
           - "6.*"
           - "7.*"
           - "8.*"
+          - "9.*"
         php-version:
           - "7.1"
           - "7.2"
@@ -41,6 +42,11 @@ jobs:
           # Lumen 8 supports PHP 7.3 - 8.1
           - {lumen-version: "8.*", php-version: "7.1"} # Lumen 8 requires 7.3+
           - {lumen-version: "8.*", php-version: "7.2"} # Lumen 8 requires 7.3+
+          # Lumen 9 supports PHP 7.3 - 8.1
+          - {lumen-version: "9.*", php-version: "7.1"} # Lumen 9 requires 8.0+
+          - {lumen-version: "9.*", php-version: "7.2"} # Lumen 9 requires 8.0+
+          - {lumen-version: "9.*", php-version: "7.3"} # Lumen 9 requires 8.0+
+          - {lumen-version: "9.*", php-version: "7.4"} # Lumen 9 requires 8.0+
     steps:
       - uses: actions/checkout@v2
       - name: "Install PHP"
