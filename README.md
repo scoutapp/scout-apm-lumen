@@ -5,7 +5,7 @@ Detailed performance metrics and transaction traces are collected once the scout
 
 ## Requirements
 
-* PHP Version: PHP 7.2+ (PHP 8.1+ recommended)
+* PHP Version: PHP 7.2+ (PHP 8.2+ is recommended)
 * Lumen Version: 5.5+
 
 ## Quick Start
